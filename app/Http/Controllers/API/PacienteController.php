@@ -32,7 +32,7 @@ class PacienteController extends Controller
 
             return response()->json([
                 'res' => true,
-                'msg' => 'Paciente Guardado correctaenete'
+                'msg' => 'Paciente Guardado correctamente'
             ]);
     }
 

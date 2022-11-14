@@ -24,14 +24,14 @@ class GuardarPacienteRequest extends FormRequest
     public function rules()
     {
         return [
-                "nombres" => "requiere",
-                "apellidos" => "requiere",
-                "edad" => "requiere",
-                "sexo" => "requiere",
-                "rfc" => "requiere|unique:pacientes,rfc",
-                "telefono" => "requiere",
-                "correo" => "require",
-                "direccion" => "requiere"
+                "nombres" => "required",
+                "apellidos" => "required",
+                "edad" => "required",
+                "sexo" => "required",
+                "rfc" => "required|unique:pacientes,rfc",
+                "telefono" => "required",
+                "correo" => "required",
+                "direccion" => "required"
                 
         ];
     }
