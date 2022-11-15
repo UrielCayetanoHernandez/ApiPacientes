@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ActualizarPacienteRequest;
 use App\Http\Requests\GuardarPacienteRequest;
+use App\Http\Resources\PacienteResource;
 use App\Models\Paciente;
 use GuzzleHttp\RetryMiddleware;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        return Paciente::all();
+        return PacienteResource::collection(Paciente::all());
     }
 
     /**
