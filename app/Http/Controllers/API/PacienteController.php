@@ -31,12 +31,15 @@ class PacienteController extends Controller
      */
     public function store(GuardarPacienteRequest $request)
     {
-            Paciente::create($request->all());
+            /*Paciente::create($request->all());
 
             return response()->json([
                 'res' => true,
                 'msg' => 'Paciente Guardado correctamente'
-            ],200);
+            ],200);*/
+
+        return new PacienteResource(Paciente::create($request->all()));
+
     }
 
     /**
@@ -47,10 +50,12 @@ class PacienteController extends Controller
      */
     public function show(Paciente $paciente)
     {
-        return response()->json([
+        /*return response()->json([
             'res' => true,
             'paciente' => $paciente
-        ],200);
+        ],200);*/
+
+        return new PacienteResource($paciente);
     }
 
     /**
@@ -62,11 +67,16 @@ class PacienteController extends Controller
      */
     public function update(ActualizarPacienteRequest $request, Paciente $paciente)
     {
-            $paciente -> update($request->all());
+       
+
+        /*$paciente -> update($request->all());
             return response()->json([
                 'res' => true,
                 'mensaje' => "Paciente actualizado Correctamente"
-            ],200);
+            ],200);*/
+
+            $paciente->update($request->all());  
+            return new PacienteResource($paciente);
     }
 
     /**
@@ -77,10 +87,14 @@ class PacienteController extends Controller
      */
     public function destroy(Paciente $paciente)
     {
-        $paciente->delete();
+        /*$paciente->delete();
         return response()->json([
             'res'=> true,
             'mensaje'=> "Paciente Eliminado correctamente"
-        ],200);
+        ],200);*/
+            $paciente->delete();
+            return new PacienteResource($paciente);
+
+
     }
 }
