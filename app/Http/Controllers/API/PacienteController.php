@@ -38,7 +38,8 @@ class PacienteController extends Controller
                 'msg' => 'Paciente Guardado correctamente'
             ],200);*/
 
-        return new PacienteResource(Paciente::create($request->all()));
+        return (new PacienteResource(Paciente::create($request->all())))
+                    ->additional(['msg'=>'Paciente Guardado correctamente']);
 
     }
 
@@ -76,7 +77,8 @@ class PacienteController extends Controller
             ],200);*/
 
             $paciente->update($request->all());  
-            return new PacienteResource($paciente);
+            return (new PacienteResource($paciente))
+            ->additional(['msg'=>'Paciente actualizado Correctamente']); 
     }
 
     /**
@@ -93,7 +95,8 @@ class PacienteController extends Controller
             'mensaje'=> "Paciente Eliminado correctamente"
         ],200);*/
             $paciente->delete();
-            return new PacienteResource($paciente);
+            return (new PacienteResource($paciente))
+            ->additional(['msg'=>'Paciente Eliminado correctamente']);
 
 
     }

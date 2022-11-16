@@ -32,4 +32,13 @@ class PacienteResource extends JsonResource
 
         ];
     }
+
+    public function with($request)
+    {
+        return[
+            'res' => true,
+        ];
+    }
+
+
 }
