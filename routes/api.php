@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\PacienteController;
+use App\Http\Controllers\AutenticarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,9 @@ Route::put('pacientes/{paciente}',[PacienteController::class,'update']);
 Route::delete('pacientes/{paciente}',[PacienteController::class,'destroy']);*/
 
 Route::apiResource('pacientes',PacienteController::class);
+
+Route::post('registro',[AutenticarController::class,'registro']);
+Route::post('acceso',[AutenticarController::class,'acceso']);
+
 
 //Route::put('pacientes/{pacientes}',[PacienteController::class,'update']);
