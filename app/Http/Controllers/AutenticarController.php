@@ -43,7 +43,16 @@ class AutenticarController extends Controller
             return response()->json([
                 'res' => true,
                 'token' => $token
-            ]);
+            ],200);
         //return $user->createToken($request->device_name)->plainTextToken;
+    }
+
+    public function cerrarsesion (Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return response()->json([
+            'res' => true,
+            'msg' => 'Token Eliminado Correctamnete'
+        ],200);
     }
 }
