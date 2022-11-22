@@ -42,7 +42,8 @@ class AutenticarController extends Controller
 
             return response()->json([
                 'res' => true,
-                'token' => $token
+                'token' => $token,
+                'usuario' => $user
             ],200);
         //return $user->createToken($request->device_name)->plainTextToken;
     }
