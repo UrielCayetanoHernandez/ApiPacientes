@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\PacienteController;
-use App\Http\Controllers\AutenticarController;
+use App\Http\Controllers\API\AutenticarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
