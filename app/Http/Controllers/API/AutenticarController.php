@@ -21,6 +21,9 @@ class AutenticarController extends Controller
             $user->password = bcrypt($request->password);
             $user->save();
 
+            $user->roles()->attach($request->roles);
+            
+
             return response()->json([
                 'res' => true,
                 'msj' =>'Usuario Registrado correctamnete'
@@ -31,7 +34,7 @@ class AutenticarController extends Controller
 
     public function acceso (accesoRequest $request)
     {
-        $user = User::where('email', $request->email)->first();
+        $user = User::with('roles')->where('email', $request->email)->first();
  
         if (! $user || ! Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
